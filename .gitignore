@@ -1,0 +1,26 @@
+# Игнорируемые файлы и директории
+node_modules/
+dist/
+public/
+
+# Файлы операционных систем
+.DS_Store
+Thumbs.db
+
+# Файлы IDE и редакторов кода
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.bak
+
+# Скомпилированные файлы
+*.min.css
+*.min.js
+
+# Директории зависимостей
+bower_components/
+jspm_packages/
