@@ -9,7 +9,7 @@ module.exports = {
   htmlmin: {
     collapseWhitespace: false,
     removeStyleLinkTypeAttributes: true, //* Удалить type="text/css" из script тегов.
-    removeScriptTypeAttributes: true, //* Удалить type="text/javascript"из scriptтегов.
+    removeScriptTypeAttributes: true, //* Удалить type="text/javascript"из script тегов.
     trimCustomFragments: true, //* Обрезать пустое пространство
     quoteCharacter: "" //* Тип кавычек для значений атрибутов
   },

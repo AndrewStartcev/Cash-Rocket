@@ -25,7 +25,7 @@ const img = () => {
     .pipe(dest(path.img.dest))
     .pipe(src(path.img.src))
     .pipe(newer(path.img.dest))
-    .pipe(gulpIf(app.isProd, imagemin(app.imgmin)))
+    // .pipe(gulpIf(app.isProd, imagemin(app.imgmin)))
     .pipe(dest(path.img.dest))
 }
 
