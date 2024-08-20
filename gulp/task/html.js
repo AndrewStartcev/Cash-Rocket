@@ -2,7 +2,7 @@ const { src, dest } = require('gulp');
 // Плагины
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
-const htmlmin = require('gulp-htmlmin')
+const htmlBeautify = require('gulp-html-beautify');
 const fileInclude = require('gulp-file-include');
 const webpHtml = require('gulp-webp-html');
 
@@ -23,7 +23,12 @@ const html = () => {
     .pipe(size({ title: "src.html" }))
     .pipe(fileInclude())
     .pipe(webpHtml())
-    .pipe(htmlmin(app.htmlmin))
+    .pipe(htmlBeautify({
+      indent_size: 2,
+      indent_char: ' ',
+      unformatted: ['code', 'pre', 'em', 'strong'],
+      extra_liners: ['head', 'body', '/html']
+    }))
     .pipe(size({ title: "public.html" }))
     .pipe(dest(path.html.dest))
 
