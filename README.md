@@ -174,3 +174,5 @@ svg use {
 	<path d="M4.90918 4.04542L13.091 9.54088L4.90918 14.9545L4.90918 4.04542Z" />
 </svg>
 ```
+
+git remote remove origin
