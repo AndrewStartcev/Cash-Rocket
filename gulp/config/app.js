@@ -17,7 +17,8 @@ module.exports = {
     mode: isProd ? "production" : "development"
   },
   imgmin: {
-    verbose: true
+    verbose: true,
+    quality: 75
   },
   fonter: {
     formats: ["ttf", "woff", "eot", "svg"]

@@ -1,7 +1,5 @@
 # Игнорируемые файлы и директории
 node_modules/
-dist/
-public/
 
 # Файлы операционных систем
 .DS_Store
@@ -17,9 +15,6 @@ Thumbs.db
 *.swp
 *.bak
 
-# Скомпилированные файлы
-*.min.css
-*.min.js
 
 # Директории зависимостей
 bower_components/

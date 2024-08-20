@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "gulp",
-    "build" : "build --prod",
-    "wordpress" : "build --prod --webp"
+    "start": "gulp",
+    "build": "build --prod",
+    "wordpress": "build --prod --webp"
   },
   "browserslist": [
     "last 3 version"
@@ -44,6 +44,7 @@
     "gulp-sass-glob": "^1.1.0",
     "gulp-shorthand": "^1.1.0",
     "gulp-size": "^4.0.1",
+    "gulp-svg-sprite": "^2.0.3",
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-webp": "^4.0.1",
     "gulp-webp-css": "^1.1.0",
@@ -51,5 +52,8 @@
     "sass": "^1.60.0",
     "webpack": "^5.77.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001651"
   }
 }

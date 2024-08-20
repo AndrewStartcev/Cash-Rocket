@@ -145,6 +145,12 @@ svg
     use(xlink:href="img/sprites/sprite.svg#logo")
 ```
 
+```html
+<svg class="icon">
+	<use xlink:href="assets/img/svg/sprite.svg#starcevAgency"></use>
+</svg>
+```
+
 Изменить стили svg-иконки из спрайта в CSS:
 
 ```css
@@ -168,26 +174,3 @@ svg use {
 	<path d="M4.90918 4.04542L13.091 9.54088L4.90918 14.9545L4.90918 4.04542Z" />
 </svg>
 ```
-
-### Сторонние библиотеки
-
-- все сторонние библиотеки устанавливаются в папку `node_modules`
-  - для их загрузки воспользуйтеcь командой `yarn add package_name`
-  - для подключения JS-файлов библиотек импортируйте их в самом начале JS-файла БЭМ-блока (то есть тот БЭМ-блок, который использует скрипт), например:
-  ```javascript
-  import $ from 'jquery';
-  ```
-  - для подключения стилевых файлов библиотек импортируйте их в файл `src/styles/vendor/_libs.scss`
-  - JS-файлы и стилевые файлы библиотек самостоятельно изменять нельзя
-
-## :point_right: Нужен SCSS без Pug?
-
-Используйте [эту](https://github.com/andreyalexeich/gulp-scss-starter/) сборку.
-
-## :yellow_heart: Нравится проект?
-
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-pug-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://qiwi.com/n/ANDREYALEXEICH) мне на пиво :beer:
-
-## :envelope: Контакты
-
-По всем вопросам пишите в [Telegram](https://t.me/andreyalexeich)
