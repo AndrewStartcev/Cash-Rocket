@@ -1,0 +1,24 @@
+// color-primary
+$color-primary-black: #030819;
+$color-primary-white: #fefeff;
+
+// color-accent
+$color-accent-blue: #5f90f0;
+$color-accent-orange: #ff9b00;
+$color-accent-red: #d23636;
+$color-accent-green: #1cbe34;
+
+//gradient
+$gradient-light: linear-gradient(100%, #fdfdfb 100%, #fdfdfb 70%);
+$gradient-dark: linear-gradient(100%, #0b1433 100%, #0b1433 0%);
+
+//background
+$background-image-main: url('assets/img/bg/main-bg.jpeg');
+
+//gray
+$gray-70: rgba(#fefeff, 0.7);
+$gray-50: rgba(#fefeff, 0.5);
+$gray-30: rgba(#fefeff, 0.3);
+$gray-20: rgba(#fefeff, 0.2);
+$gray-10: rgba(#fefeff, 0.1);
+$gray-4: rgba(#fefeff, 0.04);
