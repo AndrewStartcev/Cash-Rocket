@@ -22,7 +22,6 @@ a {
 	}
 	&:active {
 		color: darken(#1e7afd, 8);
-		transform: scale(0.95);
 	}
 }
 a,
@@ -31,9 +30,10 @@ button {
 	border: none;
 }
 html {
-	overflow: hidden;
+	// overflow: hidden;
 }
 body {
+	font-family: $font-family-primary;
 	margin: 0;
 	font-size: 16px;
 	font-weight: 400;
@@ -41,20 +41,21 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
-	overflow-y: auto;
+	background-color: $color-primary-black;
+	color: $color-primary-white;
 }
 
 .container {
 	max-width: $mediaWidthLaptop;
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 15px;
+	padding: 0;
 	@include media-tablet-horizontal {
-		max-width: mediaWidthTabletHorizontal;
-		padding: 0px;
+		max-width: 100%;
+		padding: 0 16px;
 	}
-	@include media-tablet {
-		padding: 0px 10px;
-	}
+}
+
+.main-content {
+	min-height: 100vh;
 }

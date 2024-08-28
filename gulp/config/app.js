@@ -21,6 +21,6 @@ module.exports = {
     quality: 75
   },
   fonter: {
-    formats: ["ttf", "woff", "eot", "svg"]
+    formats: ["ttf", "woff", "woff2", "eot", "svg"]
   }
 }

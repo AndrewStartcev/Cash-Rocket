@@ -13,54 +13,20 @@
 /*!*******************************!*\
   !*** ./src/assets/js/main.js ***!
   \*******************************/
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+/***/ (function() {
 
-eval("const sum = __webpack_require__(/*! ./modules/sum.js */ \"./src/assets/js/modules/sum.js\");\nconsole.log(sum(2, 10));\n\n\n//# sourceURL=webpack://gulp-starter/./src/assets/js/main.js?");
-
-/***/ }),
-
-/***/ "./src/assets/js/modules/sum.js":
-/*!**************************************!*\
-  !*** ./src/assets/js/modules/sum.js ***!
-  \**************************************/
-/***/ (function(module) {
-
-eval("module.exports = (a, b) => a + b;\n\n\n//# sourceURL=webpack://gulp-starter/./src/assets/js/modules/sum.js?");
+eval("document.addEventListener('DOMContentLoaded', function () {\n  const burger = document.querySelector('.header__burger');\n  const menu = document.querySelector('.menu');\n\n  function toggleMenu() {\n    burger.classList.toggle('burger-close');\n    menu.classList.toggle('menu-open');\n  }\n\n  function closeMenu() {\n    burger.classList.remove('burger-close');\n    menu.classList.remove('menu-open');\n  }\n\n  burger.addEventListener('click', function (event) {\n    event.stopPropagation();\n    toggleMenu();\n  });\n\n  document.addEventListener('click', function (event) {\n    if (!menu.contains(event.target) && !burger.contains(event.target)) {\n      closeMenu();\n    }\n  });\n\n});\n\n\n//# sourceURL=webpack://gulp-starter/./src/assets/js/main.js?");
 
 /***/ })
 
 /******/ 	});
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/assets/js/main.js");
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/assets/js/main.js"]();
 /******/ 	
 /******/ })()
 ;
