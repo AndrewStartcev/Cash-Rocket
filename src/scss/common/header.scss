@@ -90,9 +90,6 @@
 }
 
 .menu {
-	&__container {
-	}
-
 	&__list {
 		display: flex;
 		justify-content: flex-start;
@@ -131,7 +128,7 @@
 		&__logo {
 			padding: 0;
 			position: relative;
-			z-index: 1;
+			z-index: 6;
 			&::after {
 				display: none;
 			}
@@ -164,7 +161,7 @@
 		}
 		&__burger {
 			position: relative;
-			z-index: 1;
+			z-index: 6;
 			padding: 4px;
 			background-color: transparent;
 			border: none;
@@ -213,6 +210,7 @@
 		background-color: $color-primary-black;
 		padding-top: 100px;
 		transition: all 0.5s ease;
+		z-index: 5;
 		&-open {
 			transform: translateX(0%);
 			visibility: visible;
