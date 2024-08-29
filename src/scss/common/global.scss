@@ -64,36 +64,3 @@ body {
 		margin-top: auto;
 	}
 }
-
-.btn-outline {
-	display: inline-flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 12px;
-	padding: 4px;
-	border: 1px solid $color-accent-blue;
-	border-radius: 16px;
-	text-align: center;
-	padding-left: 24px;
-	color: $color-primary-white;
-	i {
-		font-style: normal;
-	}
-	span {
-		display: inline-flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 12px;
-		padding: 10px;
-		background-color: $color-accent-blue;
-	}
-	@media (any-hover: hover) {
-		&:hover {
-			color: $color-primary-white;
-			border-color: $color-accent-blue-hover;
-			span {
-				background-color: $color-accent-blue-hover;
-			}
-		}
-	}
-}

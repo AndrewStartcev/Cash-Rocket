@@ -1,0 +1,206 @@
+.form-block {
+	width: 100%;
+	border-radius: 32px;
+	background: linear-gradient(180deg, rgba(255, 254, 255, 0.04) 0%, rgba(254, 254, 255, 0) 100%), linear-gradient(180deg, rgba(10.62, 19.67, 50.54, 0.9) 0%, rgba(11, 20, 51, 0) 100%);
+	padding: 10px;
+	@include media-mobile-horizontal {
+		padding: 8px;
+	}
+	&__wrapper {
+		position: relative;
+		backdrop-filter: blur(12px);
+		border-radius: 22px;
+		background: linear-gradient(180deg, rgba(10.62, 19.67, 50.54, 0.9) 0%, rgba(11, 20, 51, 0) 100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 54px 61px;
+		gap: 49px;
+		&::before {
+			content: '';
+			display: block;
+			max-width: 500px;
+			width: 100%;
+			height: 30px;
+			position: absolute;
+			top: -28px;
+			right: 0;
+			@include media-mobile-horizontal {
+				top: -23px;
+				width: 90%;
+				right: 23px;
+			}
+			background-image: url("data:image/svg+xml,%3Csvg width='504' height='34' viewBox='0 0 504 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M270.584 18H0.332031V16H270.584V18Z' fill='url(%23paint0_linear_2022_5969)' fill-opacity='0.6'/%3E%3Cg style='mix-blend-mode:hard-light' filter='url(%23filter0_f_2022_5969)'%3E%3Cpath d='M488.001 17C488.001 17.5523 398.824 18 288.819 18C178.814 18 89.6367 17.5523 89.6367 17C89.6367 16.4477 178.814 16 288.819 16C398.824 16 488.001 16.4477 488.001 17Z' fill='%23128DFF' fill-opacity='0.2'/%3E%3C/g%3E%3Cg style='mix-blend-mode:hard-light' filter='url(%23filter1_f_2022_5969)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M454.804 16.1665H122.834V17.8332H454.804V16.1665Z' fill='url(%23paint1_radial_2022_5969)'/%3E%3C/g%3E%3Cg style='mix-blend-mode:hard-light' filter='url(%23filter2_f_2022_5969)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M454.804 16.1665H122.834V17.8332H454.804V16.1665Z' fill='url(%23paint2_radial_2022_5969)'/%3E%3C/g%3E%3Cg filter='url(%23filter3_f_2022_5969)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M454.804 16.1665H122.834V17.8332H454.804V16.1665Z' fill='url(%23paint3_radial_2022_5969)'/%3E%3C/g%3E%3Cg filter='url(%23filter4_f_2022_5969)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M122.834 16.1665V17.8332H454.804V16.1665H122.834Z' fill='url(%23paint4_radial_2022_5969)'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_2022_5969' x='73.6992' y='0.0625' width='430.24' height='33.875' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='7.96875' result='effect1_foregroundBlur_2022_5969'/%3E%3C/filter%3E%3Cfilter id='filter1_f_2022_5969' x='106.896' y='0.229004' width='363.846' height='33.5417' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='7.96875' result='effect1_foregroundBlur_2022_5969'/%3E%3C/filter%3E%3Cfilter id='filter2_f_2022_5969' x='117.521' y='10.854' width='342.596' height='12.2917' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='2.65625' result='effect1_foregroundBlur_2022_5969'/%3E%3C/filter%3E%3Cfilter id='filter3_f_2022_5969' x='122.303' y='15.6353' width='333.033' height='2.72925' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.265625' result='effect1_foregroundBlur_2022_5969'/%3E%3C/filter%3E%3Cfilter id='filter4_f_2022_5969' x='122.48' y='15.8123' width='332.679' height='2.37508' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='0.177083' result='effect1_foregroundBlur_2022_5969'/%3E%3C/filter%3E%3ClinearGradient id='paint0_linear_2022_5969' x1='0.332031' y1='18.5' x2='270.584' y2='18.5' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white' stop-opacity='0'/%3E%3Cstop offset='0.5' stop-color='white'/%3E%3Cstop offset='1' stop-color='white' stop-opacity='0'/%3E%3C/linearGradient%3E%3CradialGradient id='paint1_radial_2022_5969' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(288.819 16.9998) scale(165.985 0.833333)'%3E%3Cstop stop-color='%230094FF'/%3E%3Cstop offset='1' stop-color='%230094FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='paint2_radial_2022_5969' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(288.819 16.9998) scale(165.985 0.833333)'%3E%3Cstop stop-color='%230094FF'/%3E%3Cstop offset='0.84' stop-color='%230094FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='paint3_radial_2022_5969' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(288.819 16.9998) scale(165.985 0.833333)'%3E%3Cstop stop-color='%2382D9FF'/%3E%3Cstop offset='0.76' stop-color='%2382D9FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='paint4_radial_2022_5969' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(288.819 16.9998) scale(165.985 0.833333)'%3E%3Cstop stop-color='white'/%3E%3Cstop offset='0.807857' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+		}
+		@include media-mobile-horizontal {
+			gap: 32px;
+			padding: 24px 18px;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		color: #fdfdfb;
+		font-size: 52px;
+		font-weight: 500;
+		line-height: 52px;
+		margin: 0;
+		padding: 0;
+		@include media-tablet-horizontal {
+			font-size: 42px;
+			max-width: 420px;
+		}
+		@include media-mobile-horizontal {
+			font-size: 28px;
+		}
+	}
+
+	&__form {
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
+	&__add-account {
+		opacity: 0.3;
+		text-align: center;
+		color: #fefeff;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 20.8px;
+		word-wrap: break-word;
+		a {
+			color: #fefeff;
+		}
+	}
+}
+
+.form {
+	width: 100%;
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 8px;
+		width: 100%;
+		label {
+			color: $gray-50;
+			font-size: 16px;
+			font-weight: $font-weight-regular;
+			letter-spacing: $l-letter-spacing;
+			line-height: $l-line-height;
+		}
+		input {
+			font-family: $font-family-primary;
+			color: $color-primary-white;
+			padding: 13.5px 16px;
+			background-color: $gray-4;
+			border: 1px solid $gray-4;
+			border-radius: 12px;
+			outline: none;
+			padding-right: 58px;
+			&:disabled {
+				background-color: $gray-2;
+				border: 1px solid $gray-2;
+			}
+			&:focus-within {
+				border: 1px solid $gray-20;
+			}
+			&.success {
+				background-color: rgba($color-accent-green, 0.04);
+				border-color: rgba($color-accent-green, 0.24);
+				background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16.78 9.7L11.11 15.37C10.97 15.51 10.78 15.59 10.58 15.59C10.38 15.59 10.19 15.51 10.05 15.37L7.22 12.54C6.93 12.25 6.93 11.77 7.22 11.48C7.51 11.19 7.99 11.19 8.28 11.48L10.58 13.78L15.72 8.64C16.01 8.35 16.49 8.35 16.78 8.64C17.07 8.93 17.07 9.4 16.78 9.7Z' fill='%231CBE34'/%3E%3C/svg%3E%0A");
+				background-position: right 18px center;
+				background-repeat: no-repeat;
+				background-size: 24px;
+			}
+			&.error {
+				background-color: rgba($color-accent-red, 0.04);
+				border-color: rgba($color-accent-red, 0.24);
+				background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM15.36 14.3C15.65 14.59 15.65 15.07 15.36 15.36C15.21 15.51 15.02 15.58 14.83 15.58C14.64 15.58 14.45 15.51 14.3 15.36L12 13.06L9.7 15.36C9.55 15.51 9.36 15.58 9.17 15.58C8.98 15.58 8.79 15.51 8.64 15.36C8.35 15.07 8.35 14.59 8.64 14.3L10.94 12L8.64 9.7C8.35 9.41 8.35 8.93 8.64 8.64C8.93 8.35 9.41 8.35 9.7 8.64L12 10.94L14.3 8.64C14.59 8.35 15.07 8.35 15.36 8.64C15.65 8.93 15.65 9.41 15.36 9.7L13.06 12L15.36 14.3Z' fill='%23D23636'/%3E%3C/svg%3E%0A");
+				background-position: right 18px center;
+				background-repeat: no-repeat;
+				background-size: 24px;
+			}
+		}
+	}
+	&__submit {
+		font-family: $font-family-primary;
+		width: max-content;
+		display: flex;
+		margin: 0 auto;
+		margin-top: 13px;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
+		padding: 4px;
+		border-radius: 16px;
+		text-align: center;
+		padding-left: 24px;
+		background: $color-accent-blue;
+		color: $color-primary-white;
+		transition: all 0.5s ease;
+		i {
+			font-style: normal;
+			font-size: 16px;
+			font-weight: $font-weight-semibold;
+			letter-spacing: $s-letter-spacing;
+			line-height: $s-line-height;
+		}
+		span {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 12px;
+			padding: 10px;
+			background-color: $color-primary-white;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background: $color-accent-blue-hover;
+				span {
+					background-color: $color-primary-white;
+				}
+			}
+		}
+		@include media-mobile-horizontal {
+			width: 100%;
+			i {
+				flex: 1 1 auto;
+			}
+		}
+	}
+}
+
+.u-AhunterSuggestions {
+	margin-top: 8px;
+	background: rgba(#11182f, 0.4);
+	padding: 13.5px 16px;
+	background-color: $gray-4;
+	backdrop-filter: blur(12px);
+	border: 1px solid $gray-4;
+	border-radius: 12px;
+	overflow: auto;
+}
+.u-AhunterSuggestion {
+	padding: 4px 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	color: $color-accent-blue;
+}
+.u-AhunterEmptySuggestion {
+	padding: 4px 6px;
+	color: $color-accent-red;
+}
+
+.u-AhunterSelectedSuggestion {
+	background: $gray-10;
+	border-radius: 4px;
+}
+
+.u-AhunterSuggestions strong {
+	font-weight: bold;
+	color: $color-primary-white;
+}

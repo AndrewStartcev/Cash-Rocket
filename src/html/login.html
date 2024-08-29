@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="Ru-ru">
+
+@@include("chunk/head.html", {"title": "Вход в личный кабинет | Финансовая помощь онлайн от Сash-rocket"})
+
+<body>
+  <main class="main-content">
+    <section class="main-login">
+      <div class="container">
+        <div class="main-login__header">
+          <a href="#" class="logo">
+            <img src="assets/img/logo.svg" alt="">
+          </a>
+        </div>
+        <div class="main-login__wrapper">
+          <div class="form-block">
+            <div class="form-block__wrapper">
+              <h1 class="form-block__title">Вход в личный кабинет</h1>
+              <div class="form-block__form form">
+                <form action="#" method="get" novalidate>
+                  <div class="form__item">
+                    <label for="email">Ваш E-mail</label>
+                    <input type="email" id="email" placeholder="E-mail" required autocomplete="username">
+                  </div>
+                  <div class="form__item">
+                    <label for="password">Ваш пароль</label>
+                    <input type="password" id="password" placeholder="****" required autocomplete="current-password">
+                  </div>
+                  <button type="submit" class="form__submit">
+                    <i>Вход</i>
+                    <span>
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.73328 12.1834L11.8666 10.0501L9.73328 7.91675" stroke="#000" stroke-width="1.5"
+                          stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.33337 10.05H11.8084" stroke="#000" stroke-width="1.5" stroke-miterlimit="10"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M10 3.33325C13.6833 3.33325 16.6667 5.83325 16.6667 9.99992C16.6667 14.1666 13.6833 16.6666 10 16.6666"
+                          stroke="#000" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+                </form>
+              </div>
+              <div class="form-block__add-account">
+                Нет аккаунта? <a href="#">Зарегистрироваться</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/lib/ahunter_suggest.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>
