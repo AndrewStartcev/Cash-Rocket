@@ -24,9 +24,14 @@ module.exports = {
     watch: pathSrc + "/assets/js/**/*.js",
     dest: pathDest + "/assets/js"
   },
+  lib: {
+    src: pathSrc + "/assets/lib/**/*.*",
+    watch: pathSrc + "/assets/ib/**/*.*",
+    dest: pathDest + "/assets/lib"
+  },
   img: {
-    src: pathSrc + "/assets/img/**/*.{png,jpg,jpeg,svg}",
-    watch: pathSrc + "/assets/img/**/*.{png,jpg,jpeg,svg}",
+    src: pathSrc + "/assets/img/**/*.{png,jpg,jpeg,svg,ico}",
+    watch: pathSrc + "/assets/img/**/*.{png,jpg,jpeg,svg,ico}",
     dest: pathDest + "/assets/img"
   },
   svg: {

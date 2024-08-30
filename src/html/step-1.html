@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="Ru-ru">
+
+@@include("chunk/head.html", {"title": "Шаг 1 из 3 Контактные данные | Финансовая помощь онлайн от Сash-rocket"})
+
+<body>
+  <main class="main-content">
+    <section class="main-form">
+      <div class="container">
+        <div class="main-form__header">
+          <a href="#" class="logo">
+            <img src="assets/img/logo.svg" alt="">
+          </a>
+        </div>
+        <div class="main-form__wrapper">
+          <div class="main-form__detalis">
+            <div class="main-form__name">Вы оформляете:</div>
+            <div class="main-form__cards">
+              <div class="main-form__card">Сумма:<span>1000₽</span></div>
+              <div class="main-form__card">Ставка:<span>от 0%</span></div>
+              <div class="main-form__card">Срок:<span>от 7 до 365 дней</span></div>
+            </div>
+          </div>
+          <div class="form-block">
+            <div class="form-block__wrapper">
+              <div class="form-block__top">
+                <div class="form-block__label">
+                  <p>Вероятность одобрения кредита: <span>18%</span></p>
+                  <p><span>Получите +20%</span> за 1-й шаг</p>
+                </div>
+                <div class="form-block__progress">
+                  <div style="width: 18%;"></div>
+                </div>
+              </div>
+              <div class="form-block__header">
+                <div class="form-block__step">Шаг 1 из 3</div>
+                <h1 class="form-block__title">Контактные данные</h1>
+              </div>
+              <div class="form-block__form form _quize">
+                <form action="#" method="get" novalidate>
+                  <div class="form__item">
+                    <label for="tel">Номер телефона</label>
+                    <input type="tel" id="tel" placeholder="+7 (___) ___ - __ - __" required>
+                  </div>
+                  <div class="form__bottom">
+                    <label for="policy" class="checkbox">
+                      <input type="checkbox" name="policy" id="policy" required checked>
+                      <div class="checkbox__item"><span>
+                          Согласен с <a href="#">Политикой обработки персональных данных</a>, даю своё <a
+                            href="#">Согласие
+                            на обработку персональных данных и на получение
+                            рекламных материалов</a>.
+                        </span></div>
+                    </label>
+                    <button type="submit" class="form__submit">
+                      <i>Продолжить</i>
+                      <span>
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12.525 4.94141L17.5834 9.99974L12.525 15.0581" stroke="#030819" stroke-width="1.5"
+                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M3.41663 10H17.4416" stroke="#030819" stroke-width="1.5" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  @@include("chunk/script.html")
+</body>
+
+</html>

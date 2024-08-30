@@ -27,5 +27,17 @@
 	}
 	.form-block {
 		max-width: 640px;
+		&__wrapper::before {
+			max-width: 500px;
+			right: 0;
+			@include media-mobile-horizontal {
+				top: -23px;
+				width: 90%;
+				right: 23px;
+			}
+		}
+		.form__submit {
+			margin-top: 13px;
+		}
 	}
 }

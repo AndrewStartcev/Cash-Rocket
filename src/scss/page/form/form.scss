@@ -1,0 +1,74 @@
+.main-form {
+	background-color: url('../img/background_grid.png') center center / cover;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	.container {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+	}
+	&__header {
+		padding: 16px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			max-width: 217px;
+		}
+	}
+	&__detalis {
+		max-width: 1120px;
+		margin-bottom: 24px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 32px;
+	}
+
+	&__name {
+		font-size: 32px;
+		font-weight: $font-weight-regular;
+		letter-spacing: $r-letter-spacing;
+		line-height: $r-line-height;
+	}
+
+	&__cards {
+		display: flex;
+		justify-content: flex-end;
+		align-items: stretch;
+		gap: 16px;
+	}
+
+	&__card {
+		font-size: 16px;
+		font-weight: $font-weight-regular;
+		letter-spacing: $r-letter-spacing;
+		line-height: $r-line-height;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		padding: 13.5px 24px;
+		border-radius: 12px;
+		background-color: $gray-4;
+		color: $gray-50;
+		backdrop-filter: blur(12px);
+		span {
+			color: $color-primary-white;
+			font-weight: $font-weight-light;
+		}
+	}
+	&__wrapper {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 63px 0 140px;
+	}
+	.form-block {
+		max-width: 1120px;
+	}
+}

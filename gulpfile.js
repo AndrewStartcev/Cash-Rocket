@@ -13,6 +13,7 @@ const js = require('./gulp/task/js.js');
 const img = require('./gulp/task/img.js');
 const font = require('./gulp/task/font.js');
 const svgSpriteTask = require('./gulp/task/svgSprite.js');
+const lib = require('./gulp/task/lib.js');
 
 // Сервер
 const server = () => {
@@ -31,11 +32,12 @@ const watcher = () => {
   watch(path.img.watch, img).on("all", browserSync.reload);
   watch(path.font.watch, font).on("all", browserSync.reload);
   watch(path.svg.watch, svgSpriteTask).on("all", browserSync.reload);
+  watch(path.lib.src, lib).on("all", browserSync.reload);
 }
 
 const build = series(
   clear,
-  parallel(html, scss, js, img, font, svgSpriteTask),
+  parallel(html, scss, js, img, font, svgSpriteTask, lib),
   parallel(watcher, server)
 );
 
@@ -51,6 +53,7 @@ exports.js = js
 exports.img = img
 exports.font = font
 exports.svgSpriteTask = svgSpriteTask;
+exports.lib = lib;
 exports.watch = watcher
 exports.clear = clear
 

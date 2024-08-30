@@ -3,14 +3,12 @@ const { src, dest } = require('gulp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const newer = require('gulp-newer');
-const fonter = require('gulp-fonter');
-const ttf2woff2 = require('gulp-ttf2woff2');
 
 // Конфигурация
-const path = require('../config/path.js')
+const path = require('../config/path.js');
 const app = require('../config/app.js');
 
-// Обработка Images
+// Обработка шрифтов
 const font = () => {
   return src(path.font.src)
     .pipe(plumber({
@@ -20,11 +18,7 @@ const font = () => {
       }))
     }))
     .pipe(newer(path.font.dest))
-    .pipe(fonter(app.fonter.formats))
-    .pipe(dest(path.font.dest))
-    .pipe(ttf2woff2())
-    .pipe(dest(path.font.dest))
-}
+    .pipe(dest(path.font.dest)); // Просто перенос шрифтов в папку назначения
+};
 
-
-module.exports = font
+module.exports = font;
