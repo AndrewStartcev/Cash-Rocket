@@ -1,4 +1,5 @@
 .main-form {
+	overflow: hidden;
 	background-color: url('../img/background_grid.png') center center / cover;
 	min-height: 100vh;
 	display: flex;
@@ -67,8 +68,104 @@
 		align-items: center;
 		flex-direction: column;
 		padding: 63px 0 140px;
+		position: relative;
+		.money-1 {
+			position: absolute;
+			left: -50px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.money-2 {
+			position: absolute;
+			bottom: 50px;
+			left: calc(50% - 120px);
+			transform: translateX(-50%);
+		}
+		.money-3 {
+			position: absolute;
+			right: 55px;
+			top: calc(50% - 150px);
+			transform: translateY(-50%);
+			z-index: -1;
+		}
+		.money-4 {
+			position: absolute;
+			right: -150px;
+			bottom: 50px;
+		}
 	}
 	.form-block {
 		max-width: 1120px;
+	}
+}
+
+@include media-tablet-horizontal {
+	.main-form {
+		&__detalis {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 24px;
+		}
+
+		&__name {
+			font-size: 20px;
+			text-align: center;
+		}
+
+		&__cards {
+			justify-content: center;
+		}
+	}
+}
+
+@include media-mobile-horizontal {
+	.main-form {
+		&__detalis {
+			gap: 12px;
+		}
+		&__wrapper {
+			padding: 32px 0 86px;
+			.money-1 {
+				position: absolute;
+				left: -20px;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: -1;
+			}
+			.money-2 {
+				position: absolute;
+				top: 450px;
+				bottom: auto;
+				right: -40px;
+				left: auto;
+				transform: translateX(0%);
+				z-index: -1;
+			}
+			.money-3 {
+				display: none;
+			}
+			.money-4 {
+				position: absolute;
+				right: -30px;
+				bottom: 50px;
+				z-index: -1;
+			}
+		}
+
+		&__name {
+			font-size: 16px;
+			text-align: center;
+		}
+
+		&__cards {
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+		&__card {
+			flex: 1 1 48%;
+			padding: 12px;
+			font-size: 14px;
+		}
 	}
 }

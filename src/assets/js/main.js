@@ -1,131 +1,374 @@
-document.querySelectorAll('form').forEach(form => {
-  if (form.classList.contains('is_ahunterSuggest')) {
-    const options = {
-      fields: [
-        { id: 'js-last_name', tag: 'last_name' },
-        { id: 'js-first_name', tag: 'first_name' },
-        { id: 'js-patronym', tag: 'patronym' }
-      ],
-      ahunter_url: 'https://ahunter.ru/',
-      limit: 5,
-      suggest_on_focus: false
-    };
+document.addEventListener('DOMContentLoaded', function () {
 
-    // Запуск дискретных подсказок
-    AhunterSuggest.Person.Discrete(options);
-  }
 
-  // Обработчик отправки формы
-  form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+  const burger = document.querySelector('.header__burger');
+  const menu = document.querySelector('.menu');
 
-    // Выполняем валидацию формы перед отправкой
-    const isValid = checkFormValidity(form);
-
-    if (isValid) {
-      form.submit(); // Отправляем форму, если все поля валидны
-    } else {
-      toggleFormState(form); // Обновляем состояние формы (добавляем класс .error и отключаем кнопку)
+  if (menu) {
+    function toggleMenu() {
+      burger.classList.toggle('burger-close');
+      menu.classList.toggle('menu-open');
     }
-  });
 
-  // Обработчик события "blur" для каждого поля
-  form.querySelectorAll('[required]').forEach(field => {
-    field.addEventListener('blur', function () {
-      validateField(field);
-      toggleFormState(form);
+    function closeMenu() {
+      burger.classList.remove('burger-close');
+      menu.classList.remove('menu-open');
+    }
+
+    burger.addEventListener('click', function (event) {
+      event.stopPropagation();
+      toggleMenu();
     });
 
-    // Обработчик события "change" для чекбоксов
-    if (field.type === 'checkbox') {
-      field.addEventListener('change', function () {
+    document.addEventListener('click', function (event) {
+      if (!menu.contains(event.target) && !burger.contains(event.target)) {
+        closeMenu();
+      }
+    });
+  }
+
+  class PhoneMask {
+    constructor(input) {
+      this.input = input;
+      this.attachEvents();
+    }
+
+    static extractDigits(value) {
+      return value.replace(/\D/g, '');
+    }
+
+    handlePaste(event) {
+      const input = event.target;
+      const digits = PhoneMask.extractDigits(input.value);
+      const pastedData = event.clipboardData || window.clipboardData;
+      if (pastedData) {
+        const pastedText = pastedData.getData('Text');
+        if (/\D/g.test(pastedText)) {
+          input.value = digits;
+          event.preventDefault();
+        }
+      }
+    }
+
+    handleInput(event) {
+      const input = event.target;
+      let digits = PhoneMask.extractDigits(input.value);
+      let cursorPosition = input.selectionStart;
+      let formattedValue = '';
+
+      if (!digits) {
+        input.value = '';
+        return;
+      }
+
+      if (input.value.length !== cursorPosition) {
+        if (event.data && /\D/g.test(event.data)) {
+          input.value = digits;
+        }
+        return;
+      }
+
+      if (['7', '8', '9'].includes(digits[0])) {
+        if (digits[0] === '9') digits = '7' + digits;
+        const countryCode = (digits[0] === '8') ? '8' : '+7';
+        formattedValue = countryCode + ' ';
+        if (digits.length > 1) {
+          formattedValue += '(' + digits.substring(1, 4);
+        }
+        if (digits.length >= 5) {
+          formattedValue += ') ' + digits.substring(4, 7);
+        }
+        if (digits.length >= 8) {
+          formattedValue += '-' + digits.substring(7, 9);
+        }
+        if (digits.length >= 10) {
+          formattedValue += '-' + digits.substring(9, 11);
+        }
+      } else {
+        formattedValue = '+' + digits.substring(0, 16);
+      }
+
+      input.value = formattedValue;
+    }
+
+    handleKeyDown(event) {
+      const digits = PhoneMask.extractDigits(event.target.value);
+      if (event.key === 'Backspace' && digits.length === 1) {
+        event.target.value = '';
+      }
+    }
+
+    validatePhone() {
+      const digits = PhoneMask.extractDigits(this.input.value);
+      const isValid = digits.length === 11 && digits.startsWith('7');
+      if (!isValid) {
+        this.input.classList.add('error');
+      } else {
+        this.input.classList.remove('error');
+      }
+    }
+
+    attachEvents() {
+      this.input.addEventListener('keydown', this.handleKeyDown.bind(this));
+      this.input.addEventListener('input', this.handleInput.bind(this));
+      this.input.addEventListener('paste', this.handlePaste.bind(this));
+      this.input.addEventListener('blur', this.validatePhone.bind(this));
+    }
+  }
+
+  document.querySelectorAll('input[type="tel"]').forEach(input => new PhoneMask(input));
+
+  document.querySelectorAll('form').forEach(form => {
+    if (form.classList.contains('is_ahunterSuggest')) {
+      const options = {
+        fields: [
+          { id: 'js-last_name', tag: 'last_name' },
+          { id: 'js-first_name', tag: 'first_name' },
+          { id: 'js-patronym', tag: 'patronym' }
+        ],
+        ahunter_url: 'https://ahunter.ru/',
+        limit: 5,
+        suggest_on_focus: false
+      };
+      const optionsAddress = {
+        fields: [
+          {
+            id: 'js-AddressField', levels: ['Region', 'District', 'City', 'Place']
+          }
+        ],
+        ahunter_url: 'https://ahunter.ru/',
+        limit: 5,
+        suggest_on_focus: false
+      };
+
+      // Запускаем модуль
+      AhunterSuggest.Address.Discrete(optionsAddress);
+      AhunterSuggest.Person.Discrete(options);
+    }
+
+    // Обработчик отправки формы
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+      // Выполняем валидацию формы перед отправкой
+      const isValid = checkFormValidity(form);
+
+      if (isValid) {
+        form.submit(); // Отправляем форму, если все поля валидны
+      } else {
+        toggleFormState(form); // Обновляем состояние формы (добавляем класс .error и отключаем кнопку)
+      }
+    });
+
+    // Обработчик события "blur" для каждого поля
+    form.querySelectorAll('[required]').forEach(field => {
+      field.addEventListener('blur', function () {
         validateField(field);
         toggleFormState(form);
       });
-    } else {
-      // Обработчик события "input" для всех остальных полей
-      field.addEventListener('input', function () {
-        if (field.type === 'email' || field.type === 'tel') {
-          field.classList.remove('error', 'success');
-        } else {
-          validateField(field);
-        }
-        toggleFormState(form);
-      });
-    }
-  });
 
-  function validateField(field) {
-    if (field.type === 'checkbox') {
-      if (!field.checked) {
+      // Обработчик события "change" для чекбоксов и календаря
+      if (field.type === 'checkbox' || field.id === 'calendar-input') {
+        field.addEventListener('change', function () {
+          validateField(field);
+          toggleFormState(form);
+        });
+      } else {
+        // Обработчик события "input" для всех остальных полей
+        field.addEventListener('input', function () {
+          if (field.type === 'email' || field.type === 'tel') {
+            field.classList.remove('error', 'success');
+          } else {
+            validateField(field);
+          }
+          toggleFormState(form);
+        });
+      }
+    });
+
+    function validateField(field) {
+      const errorSpan = field.nextElementSibling;
+      if (field.type === 'checkbox') {
+        if (!field.checked) {
+          field.classList.add('error');
+          field.classList.remove('success');
+          if (errorSpan) errorSpan.textContent = ''; // Очистить сообщение об ошибке для чекбокса
+          return false;
+        } else {
+          field.classList.remove('error');
+          field.classList.add('success');
+          if (errorSpan) errorSpan.textContent = ''; // Очистить сообщение об ошибке для чекбокса
+          return true;
+        }
+      } else if (field.value.trim() === '') {
         field.classList.add('error');
         field.classList.remove('success');
+        if (errorSpan) {
+          errorSpan.textContent = 'Это поле необходимо заполнить';
+          errorSpan.style.display = 'block'; // Показываем сообщение об ошибке
+        }
         return false;
       } else {
         field.classList.remove('error');
-        field.classList.add('success');
+
+        if (field.type === 'email') {
+          if (validateEmail(field.value)) {
+            field.classList.add('success');
+          } else {
+            field.classList.add('error');
+            if (errorSpan) {
+              errorSpan.textContent = 'Введите корректный E-mail';
+              errorSpan.style.display = 'block'; // Показываем сообщение об ошибке
+            }
+            return false;
+          }
+        } else if (field.type === 'tel') {
+          if (validatePhone(field.value)) {
+            field.classList.add('success');
+          } else {
+            field.classList.add('error');
+            if (errorSpan) {
+              errorSpan.textContent = 'Введите корректный номер телефона';
+              errorSpan.style.display = 'block'; // Показываем сообщение об ошибке
+            }
+            return false;
+          }
+        } else if (field.id === 'siries') {
+          if (validatePassportSeries(field.value)) {
+            field.classList.add('success');
+          } else {
+            field.classList.add('error');
+            if (errorSpan) {
+              errorSpan.textContent = 'Введите корректную серию и номер паспорта';
+              errorSpan.style.display = 'block'; // Показываем сообщение об ошибке
+            }
+            return false;
+          }
+        } else if (field.id === 'code') {
+          if (validateCode(field.value)) {
+            field.classList.add('success');
+          } else {
+            field.classList.add('error');
+            if (errorSpan) {
+              errorSpan.textContent = 'Введите корректный код подразделения';
+              errorSpan.style.display = 'block'; // Показываем сообщение об ошибке
+            }
+            return false;
+          }
+        } else {
+          field.classList.add('success');
+          if (errorSpan) errorSpan.style.display = 'none'; // Скрываем сообщение об ошибке
+        }
         return true;
       }
-    } else if (field.value.trim() === '') {
-      field.classList.add('error');
-      field.classList.remove('success');
-      return false;
-    } else {
-      field.classList.remove('error');
+    }
 
-      if (field.type === 'email') {
-        if (validateEmail(field.value)) {
-          field.classList.add('success');
-        } else {
-          field.classList.add('error');
-          return false;
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function validatePhone(phone) {
+      const digits = phone.replace(/\D/g, '');
+      return digits.length === 11 && digits.startsWith('7');
+    }
+
+    function validatePassportSeries(series) {
+      const re = /^\d{4} - \d{6}$/;
+      return re.test(series);
+    }
+
+    function validateCode(code) {
+      const re = /^\d{3} - \d{3}$/;
+      return re.test(code);
+    }
+
+    function checkFormValidity(form) {
+      let isValid = true;
+      form.querySelectorAll('[required]').forEach(field => {
+        if (!validateField(field)) {
+          isValid = false;
         }
-      } else if (field.type === 'tel') {
-        if (validatePhone(field.value)) {
-          field.classList.add('success');
-        } else {
-          field.classList.add('error');
-          return false;
-        }
+      });
+      return isValid;
+    }
+
+    function toggleFormState(form) {
+      const isValid = checkFormValidity(form);
+      const submitButton = form.querySelector('[type="submit"]');
+
+      if (isValid) {
+        form.classList.remove('error');
+        submitButton.removeAttribute('disabled');
       } else {
-        field.classList.add('success');
+        form.classList.add('error');
+        submitButton.setAttribute('disabled', 'disabled');
       }
-      return true;
     }
-  }
 
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-
-  function validatePhone(phone) {
-    // Удаляем все нечисловые символы
-    const digits = phone.replace(/\D/g, '');
-    // Проверяем, что номер состоит из 11 цифр и начинается с 7
-    return digits.length === 11 && digits.startsWith('7');
-  }
-
-  function checkFormValidity(form) {
-    let isValid = true;
-    form.querySelectorAll('[required]').forEach(field => {
-      if (!validateField(field)) {
-        isValid = false;
+    // Функция для форматирования номера паспорта
+    function formatPassportSeries(value) {
+      // Удаляем все нечисловые символы
+      let numbers = value.replace(/\D/g, '');
+      // Форматируем в соответствии с шаблоном
+      if (numbers.length > 4) {
+        numbers = numbers.slice(0, 4) + ' - ' + numbers.slice(4, 10);
       }
+      return numbers;
+    }
+
+    // Функция для форматирования кода подразделения
+    function formatCode(value) {
+      // Удаляем все нечисловые символы
+      let numbers = value.replace(/\D/g, '');
+      // Форматируем в соответствии с шаблоном
+      if (numbers.length > 3) {
+        numbers = numbers.slice(0, 3) + ' - ' + numbers.slice(3, 6);
+      }
+      return numbers;
+    }
+
+    // Обработчик форматирования ввода
+    form.querySelectorAll('#siries, #code').forEach(field => {
+      field.addEventListener('input', function () {
+        if (field.id === 'siries') {
+          field.value = formatPassportSeries(field.value);
+        } else if (field.id === 'code') {
+          field.value = formatCode(field.value);
+        }
+        validateField(field); // Перепроверяем поле после форматирования
+        toggleFormState(form); // Обновляем состояние формы
+      });
     });
-    return isValid;
-  }
 
-  function toggleFormState(form) {
-    const isValid = checkFormValidity(form);
-    const submitButton = form.querySelector('[type="submit"]');
+    const options = {
+      input: true,
+      actions: {
+        changeToInput(e, self) {
+          if (!self.HTMLInputElement) return;
+          if (self.selectedDates[0]) {
+            self.HTMLInputElement.value = self.selectedDates[0];
+            self.hide();
+          } else {
+            self.HTMLInputElement.value = '';
+          }
+        },
+      },
+      settings: {
+        lang: 'Ru-ru',
+        range: {
+          max: 'today',
+        },
+        visibility: {
+          positionToInput: 'left',
+        },
+      },
+    };
 
-    if (isValid) {
-      form.classList.remove('error');
-      submitButton.removeAttribute('disabled');
-    } else {
-      form.classList.add('error');
-      submitButton.setAttribute('disabled', 'disabled');
-    }
-  }
+    const calendarInput = new VanillaCalendar('#calendar-input', options);
+    calendarInput.init();
+  });
+
+
+
 });
