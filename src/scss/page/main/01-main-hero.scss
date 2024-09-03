@@ -1,4 +1,329 @@
 .main-hero {
-	background-color: url('../img/background.png') center center / cover;
-	min-height: 100vh;
+	background-color: url('../img/background_grid.png') center center / cover;
+	padding-bottom: 180px;
+
+	&__wrapper {
+		padding-top: 72px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		margin-bottom: 64px;
+		h1 {
+			max-width: 955px;
+			font-size: 76px;
+			font-weight: $font-weight-medium;
+			letter-spacing: $heading-letter-spacing;
+			line-height: $heading-line-height;
+			margin: 0;
+			padding: 0;
+			span {
+				color: $color-accent-blue;
+			}
+		}
+		p {
+			max-width: 370px;
+			margin: 0;
+			padding: 0;
+			margin-top: 24px;
+			color: $gray-50;
+			font-size: 20px;
+			font-weight: $font-weight-light;
+			letter-spacing: $l-letter-spacing;
+			line-height: $l-line-height;
+		}
+	}
+
+	&__label {
+		padding: 8px 16px;
+		text-align: center;
+		font-size: 16px;
+		font-weight: $font-weight-light;
+		letter-spacing: $r-letter-spacing;
+		line-height: $r-line-height;
+		color: $color-accent-orange;
+		background-color: rgba($color-accent-orange, 0.08);
+		border-radius: 12px;
+		border: 1px solid $gray-4;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+	}
+}
+
+.calculator {
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
+	flex-direction: row;
+	gap: 24px;
+	padding: 36px;
+	&__column {
+		flex: 1 1 50%;
+	}
+
+	&__monitor {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		background-color: $gray-4;
+		border: 1px solid $gray-4;
+		border-radius: 16px;
+		padding: 24px 24px 16px 24px;
+	}
+
+	&__screen {
+		flex: 1 1 50%;
+		&:last-child {
+			padding-left: 16px;
+		}
+		&:first-child {
+			border-right: 1px solid $gray-4;
+			padding-right: 16px;
+		}
+		span {
+			display: block;
+			font-size: 16px;
+			font-weight: $font-weight-regular;
+			letter-spacing: $r-letter-spacing;
+			line-height: $r-line-height;
+			color: $gray-50;
+			margin-bottom: 70px;
+		}
+		p {
+			margin: 0;
+			padding: 0;
+			font-size: 32px;
+			font-weight: $font-weight-regular;
+			letter-spacing: $r-letter-spacing;
+			line-height: $r-line-height;
+		}
+	}
+
+	&__info {
+		margin-top: 24px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		span,
+		a {
+			color: $gray-50;
+			font-size: 14px;
+			font-weight: $font-weight-light;
+			letter-spacing: $r-letter-spacing;
+			line-height: $r-line-height;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 8px;
+			svg {
+				flex: 0 0 auto;
+			}
+		}
+	}
+	.form__submit {
+		margin-right: 0;
+		margin-top: 50px;
+	}
+}
+.calculator-sliders {
+	border: 1px solid $gray-4;
+	border-radius: 16px;
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+	&__item {
+		width: 100%;
+	}
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		margin-bottom: 16px;
+		label {
+			font-size: 16px;
+			font-weight: $font-weight-regular;
+			letter-spacing: $r-letter-spacing;
+			line-height: $r-line-height;
+		}
+		input {
+			font-size: 16px;
+			max-width: 174px;
+			text-align: right;
+			font-family: $font-family-primary;
+			color: $color-primary-white;
+			padding: 13.5px 16px;
+			background-color: $gray-4;
+			border: 1px solid $gray-4;
+			border-radius: 12px;
+			outline: none;
+			&:disabled {
+				background-color: $gray-2;
+				border: 1px solid $gray-2;
+			}
+			&:focus-within {
+				border: 1px solid $gray-20;
+			}
+		}
+	}
+
+	&__input {
+		.ui-slider-horizontal {
+			height: 12px;
+			border-radius: 8px;
+			background-color: $gray-4;
+			backdrop-filter: blur(12px);
+		}
+		.ui-slider-range {
+			background: linear-gradient(90deg, rgba(95, 144, 240, 0) 0%, #5f90f0 100%);
+			border-radius: 8px;
+		}
+		.ui-slider-handle {
+			width: 24px;
+			height: 24px;
+			border-radius: 100%;
+			background-color: $color-accent-blue;
+			border: 2px solid $color-primary-white;
+		}
+	}
+
+	&__footer {
+		margin-top: 8px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		color: $gray-50;
+		font-size: 14px;
+		font-weight: $font-weight-regular;
+		letter-spacing: $r-letter-spacing;
+		line-height: $r-line-height;
+	}
+}
+
+@include media-tablet-horizontal {
+	.main-hero {
+		padding-bottom: 100px;
+		&__wrapper {
+			padding-top: 48px;
+			h1 {
+				font-size: 62px;
+			}
+		}
+	}
+
+	.calculator {
+		flex-direction: column;
+		gap: 32px;
+		.form__submit {
+			margin-top: 32px;
+		}
+	}
+}
+
+@include media-mobile-horizontal {
+	.main-hero {
+		padding-bottom: 82px;
+		&__wrapper {
+			padding-top: 64px;
+			margin-bottom: 48px;
+			h1 {
+				font-size: 32px;
+			}
+			p {
+				font-size: 16px;
+				margin-top: 16px;
+				width: 80%;
+			}
+		}
+		&__label {
+			padding: 6px 12px;
+			font-size: 12px;
+			border-radius: 8px;
+			gap: 8px;
+		}
+	}
+	.calculator {
+		padding: 24px;
+		&__column {
+			flex: 1 1 auto;
+		}
+
+		&__monitor {
+			flex-direction: column;
+			border-radius: 12px;
+			padding: 16px;
+		}
+
+		&__screen {
+			&:last-child {
+				padding-top: 16px;
+				padding-left: 0;
+			}
+			&:first-child {
+				border-right: none;
+				padding-right: 0;
+				border-bottom: 1px solid $gray-4;
+				padding-bottom: 16px;
+			}
+			span {
+				font-size: 14px;
+				margin-bottom: 12px;
+			}
+			p {
+				font-size: 20px;
+			}
+		}
+
+		&__info {
+			flex-direction: column;
+			gap: 12px;
+			align-items: flex-start;
+			span,
+			a {
+				font-size: 12px;
+			}
+		}
+		.form__submit {
+			margin-top: 24px;
+		}
+	}
+	.calculator-sliders {
+		border: none;
+		border-radius: 0px;
+		padding: 0px;
+		gap: 48px;
+		&__item {
+			width: 100%;
+		}
+
+		&__top {
+			gap: 1px;
+			label {
+				font-size: 14px;
+			}
+			input {
+				max-width: 130px;
+			}
+		}
+
+		&__input {
+			.ui-slider-horizontal {
+				height: 10px;
+			}
+			.ui-slider-handle {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		&__footer {
+			font-size: 12px;
+		}
+	}
 }

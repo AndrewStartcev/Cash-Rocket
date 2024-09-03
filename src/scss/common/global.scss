@@ -30,7 +30,7 @@ button {
 	border: none;
 }
 html {
-	// overflow: hidden;
+	overflow: hidden auto;
 }
 body {
 	font-family: $font-family-primary;
@@ -40,6 +40,7 @@ body {
 	line-height: 140%;
 	min-height: 100vh;
 	display: flex;
+	overflow: hidden;
 	flex-direction: column;
 	background-color: $color-primary-black;
 	color: $color-primary-white;

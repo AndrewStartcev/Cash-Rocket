@@ -369,6 +369,73 @@ document.addEventListener('DOMContentLoaded', function () {
     calendarInput.init();
   });
 
+});
 
+$(function () {
+  // Слайдер для суммы кредита
+  $("#credits-slider").slider({
+    range: "min",
+    value: $("#credits-slider").data("summ"),
+    min: $("#credits-slider").data("min"),
+    max: $("#credits-slider").data("max"),
+    step: $("#credits-slider").data("step"),
+    slide: function (event, ui) {
+      let formattedValue = formatCurrency(ui.value) + " ₽";
+      $("#credits-amount").val(formattedValue);
+      $("#credits-screen").text(formattedValue);
+    }
+  });
+  let initialCreditValue = formatCurrency($("#credits-slider").slider("value")) + " ₽";
+  $("#credits-amount").val(initialCreditValue);
+  $("#credits-screen").text(initialCreditValue);
 
+  // Слайдер для срока кредита
+  $("#date-slider").slider({
+    range: "min",
+    value: $("#date-slider").data("summ"),
+    min: $("#date-slider").data("min"),
+    max: $("#date-slider").data("max"),
+    step: $("#date-slider").data("step"),
+    slide: function (event, ui) {
+      let dateText = ui.value + " " + getDayWord(ui.value);
+      let returnDate = calculateReturnDate(ui.value);
+      $("#date-amount").val(dateText);
+      $("#date-screen").text(returnDate);
+    }
+  });
+  let initialDateValue = $("#date-slider").slider("value") + " " + getDayWord($("#date-slider").slider("value"));
+  let initialReturnDate = calculateReturnDate($("#date-slider").slider("value"));
+  $("#date-amount").val(initialDateValue);
+  $("#date-screen").text(initialReturnDate);
+
+  // Функция форматирования суммы в рублях
+  function formatCurrency(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+
+  // Функция склонения слова "день"
+  function getDayWord(days) {
+    if (days >= 11 && days <= 19) {
+      return "дней";
+    }
+    switch (days % 10) {
+      case 1:
+        return "день";
+      case 2:
+      case 3:
+      case 4:
+        return "дня";
+      default:
+        return "дней";
+    }
+  }
+
+  function calculateReturnDate(days) {
+    let returnDate = new Date();
+    returnDate.setDate(returnDate.getDate() + days);
+    let day = ("0" + returnDate.getDate()).slice(-2); // День с ведущим нулем
+    let month = ("0" + (returnDate.getMonth() + 1)).slice(-2); // Месяц с ведущим нулем (месяцы в JS начинаются с 0)
+    let year = returnDate.getFullYear();
+    return `${day}.${month}.${year}`;
+  }
 });

@@ -7,12 +7,319 @@
   <main class="main-content">
     <section class="main-hero">
       @@include("chunk/header.html")
-      <div class="container main-hero__wrapper">
-        <div class="main-hero__label">До 100 000 руб. онлайн!</div>
-        <h1>Финансовая помощь онлайн от <span>Сash-rocket</span></h1>
-        <p>Заполните анкету и получите решение за 10 минут!</p>
+      <div class="container">
+        <div class="main-hero__wrapper">
+          <div class="main-hero__label"><svg width="10" height="11" viewBox="0 0 10 11" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M5 0.5L6.35045 4.14955L10 5.5L6.35045 6.85045L5 10.5L3.64955 6.85045L0 5.5L3.64955 4.14955L5 0.5Z"
+                fill="#FF9B00" />
+            </svg>
+            До 100 000 руб. онлайн!<svg width="10" height="11" viewBox="0 0 10 11" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M5 0.5L6.35045 4.14955L10 5.5L6.35045 6.85045L5 10.5L3.64955 6.85045L0 5.5L3.64955 4.14955L5 0.5Z"
+                fill="#FF9B00" />
+            </svg>
+          </div>
+          <h1>Финансовая помощь онлайн от <span>Сash-rocket</span></h1>
+          <p>Заполните анкету и получите решение за 10 минут!</p>
+        </div>
+        <div class="form-block">
+          <div class="form-block__wrapper calculator">
+            <div class="calculator__column calculator-sliders">
+              <div class="calculator-sliders__item">
+                <div class="calculator-sliders__top">
+                  <label for="credits-amount">Сумма кредита</label>
+                  <input type="text" id="credits-amount" readonly>
+                </div>
+                <div class="calculator-sliders__input">
+                  <div id="credits-slider" data-summ="250000" data-min="1000" data-max="500000" data-step="1000"></div>
+                  <div class="calculator-sliders__footer">
+                    <span>1000 ₽</span>
+                    <span>500 000 ₽</span>
+                  </div>
+                </div>
+              </div>
+              <div class="calculator-sliders__item">
+                <div class="calculator-sliders__top">
+                  <label for="date-amount">Выберете срок</label>
+                  <input type="text" id="date-amount" readonly>
+                </div>
+                <div class="calculator-sliders__input">
+                  <div id="date-slider" data-summ="7" data-min="7" data-max="30" data-step="1"></div>
+                  <div class="calculator-sliders__footer">
+                    <span>7 дней</span>
+                    <span>30 дней</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="calculator__column">
+              <div class="calculator__monitor">
+                <div class="calculator__screen">
+                  <span>Вы возвращаете</span>
+                  <p id="credits-screen"></p>
+                </div>
+                <div class="calculator__screen">
+                  <span>Дата возврата</span>
+                  <p id="date-screen"></p>
+                </div>
+              </div>
+              <div class="calculator__info">
+                <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.5">
+                      <path
+                        d="M4 6.66658V5.33325C4 3.12659 4.66667 1.33325 8 1.33325C11.3333 1.33325 12 3.12659 12 5.33325V6.66658"
+                        stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M8.00004 12.3333C8.92052 12.3333 9.66671 11.5871 9.66671 10.6667C9.66671 9.74619 8.92052 9 8.00004 9C7.07957 9 6.33337 9.74619 6.33337 10.6667C6.33337 11.5871 7.07957 12.3333 8.00004 12.3333Z"
+                        stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M11.3334 14.6667H4.66671C2.00004 14.6667 1.33337 14.0001 1.33337 11.3334V10.0001C1.33337 7.33341 2.00004 6.66675 4.66671 6.66675H11.3334C14 6.66675 14.6667 7.33341 14.6667 10.0001V11.3334C14.6667 14.0001 14 14.6667 11.3334 14.6667Z"
+                        stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                  </svg>
+                  Данные зашифрованы по стандарту DES</span>
+                <a href="#">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.00004 14.6666C11.6667 14.6666 14.6667 11.6666 14.6667 7.99992C14.6667 4.33325 11.6667 1.33325 8.00004 1.33325C4.33337 1.33325 1.33337 4.33325 1.33337 7.99992C1.33337 11.6666 4.33337 14.6666 8.00004 14.6666Z"
+                      stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.00008 8.90649V8.76652C8.00008 8.31319 8.2801 8.07318 8.5601 7.87984C8.83343 7.69318 9.10673 7.45318 9.10673 7.01318C9.10673 6.39985 8.61341 5.90649 8.00008 5.90649C7.38675 5.90649 6.89343 6.39985 6.89343 7.01318"
+                      stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.99634 10.6667H8.00233" stroke="#FEFEFF" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  Работа сервиса</a>
+              </div>
+              <a href="#" class="form__submit">
+                <i>Оставить заявку</i>
+                <span>
+                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.525 4.94141L17.5834 9.99974L12.525 15.0581" stroke="#030819" stroke-width="1.5"
+                      stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.41663 10H17.4416" stroke="#030819" stroke-width="1.5" stroke-miterlimit="10"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="features__wrapper">
+          <div class="features__col">
+            <div class="features__header">
+              <h2>Быстрые и выгодные решения для <span>ваших финансов</span></h2>
+              <p>Мы предлагаем прозрачные условия, быструю обработку заявок и полную защиту ваших данных.</p>
+            </div>
+            <img src="assets/img/features_bg.png" alt="" class="features__bg">
+            <img src="assets/img/features_rocket.svg" alt="" class="features__rocket">
+          </div>
+          <div class="features__cards">
+            <div class="features__card">
+              <span><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M33 18C33 26.28 26.28 33 18 33C9.72 33 3 26.28 3 18C3 9.72 9.72 3 18 3C26.28 3 33 9.72 33 18Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M23.5649 22.7699L18.9149 19.9949C18.1049 19.5149 17.4449 18.3599 17.4449 17.4149V11.2649"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></span>
+
+              <div>
+                <h3>10 минут <br> и деньги у вас</h3>
+                <p>Оформите заявку и получите деньги на счёт за 10 минут</p>
+              </div>
+            </div>
+            <div class="features__card">
+              <span><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.22 27.525L15.87 31.125C16.47 31.725 17.82 32.025 18.72 32.025H24.42C26.22 32.025 28.17 30.675 28.62 28.875L32.22 17.925C32.97 15.825 31.62 14.025 29.37 14.025H23.37C22.47 14.025 21.72 13.275 21.87 12.225L22.62 7.42495C22.92 6.07495 22.02 4.57495 20.67 4.12495C19.47 3.67495 17.97 4.27495 17.37 5.17495L11.22 14.325"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" />
+                  <path
+                    d="M3.56995 27.5251V12.8251C3.56995 10.7251 4.46995 9.9751 6.56995 9.9751H8.06995C10.1699 9.9751 11.0699 10.7251 11.0699 12.8251V27.5251C11.0699 29.6251 10.1699 30.3751 8.06995 30.3751H6.56995C4.46995 30.3751 3.56995 29.6251 3.56995 27.5251Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></span>
+              <div>
+                <h3>99% <br> вероятность одобрения</h3>
+                <p>Наши заявки одобряются с вероятностью 99%</p>
+              </div>
+            </div>
+            <div class="features__card">
+              <span>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M29.955 15H5.95496V27C5.95496 31.5 7.45496 33 11.955 33H23.955C28.455 33 29.955 31.5 29.955 27V15Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M32.25 10.5V12C32.25 13.65 31.455 15 29.25 15H6.75C4.455 15 3.75 13.65 3.75 12V10.5C3.75 8.85 4.455 7.5 6.75 7.5H29.25C31.455 7.5 32.25 8.85 32.25 10.5Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M17.46 7.50016H9.18004C8.67004 6.94516 8.68504 6.09016 9.22504 5.55016L11.355 3.42016C11.91 2.86516 12.825 2.86516 13.38 3.42016L17.46 7.50016Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26.805 7.50016H18.525L22.605 3.42016C23.16 2.86516 24.075 2.86516 24.63 3.42016L26.76 5.55016C27.3 6.09016 27.315 6.94516 26.805 7.50016Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M13.41 15V22.71C13.41 23.91 14.73 24.615 15.735 23.97L17.145 23.04C17.655 22.71 18.3 22.71 18.795 23.04L20.13 23.94C21.12 24.6 22.455 23.895 22.455 22.695V15H13.41Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <div>
+                <h3>0% ставка <br> на первый займ</h3>
+                <p>Первый займ выдаётся без процентов</p>
+              </div>
+            </div>
+            <div class="features__card">
+              <span><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.735 3.34484L8.24999 6.16484C6.52499 6.80984 5.11499 8.84984 5.11499 10.6798V21.8248C5.11499 23.5948 6.28499 25.9198 7.70999 26.9848L14.16 31.7998C16.275 33.3898 19.755 33.3898 21.87 31.7998L28.32 26.9848C29.745 25.9198 30.915 23.5948 30.915 21.8248V10.6798C30.915 8.83484 29.505 6.79484 27.78 6.14984L20.295 3.34484C19.02 2.87984 16.98 2.87984 15.735 3.34484Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M18 18.75C19.6569 18.75 21 17.4069 21 15.75C21 14.0931 19.6569 12.75 18 12.75C16.3431 12.75 15 14.0931 15 15.75C15 17.4069 16.3431 18.75 18 18.75Z"
+                    stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M18 18.75V23.25" stroke="#FF9B00" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg></span>
+              <div>
+                <h3>Полная защита ваших данных</h3>
+                <p>Обеспечиваем безопасность и защиту данных</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="moneys">
+      <div class="container">
+        <div class="moneys-tips">
+          <div class="moneys-tips__header">
+            <h2>Удобные способы получения <span>денег</span></h2>
+            <p>Мы предлагаем несколько вариантов получения средств, чтобы вы могли выбрать самый удобный для вас способ.
+            </p>
+          </div>
+          <div class="moneys-tips__wrapper">
+            <div class="moneys-tips__card money-card">
+              <div class="money-card__wrapper">
+                <div class="money-card__icon">
+                  <img src="assets/img/money-card-1.svg" alt="">
+                </div>
+                <div class="money-card__content">
+                  <h3>Наличными</h3>
+                  <p>Получите деньги наличными в одном из наших офисов или пунктов выдачи. Для тех, кто ценит
+                    традиционные способы</p>
+                </div>
+              </div>
+            </div>
+            <div class="moneys-tips__card money-card">
+              <div class="money-card__wrapper">
+                <div class="money-card__icon">
+                  <img src="assets/img/money-card-2.svg" alt="">
+                </div>
+                <div class="money-card__content">
+                  <h3>На кошелек</h3>
+                  <p>Пополнение электронного кошелька — поддержка всех основных сервисов для лёгкого доступа к деньгам
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="moneys-tips__card money-card">
+              <div class="money-card__wrapper">
+                <div class="money-card__icon">
+                  <img src="assets/img/money-card-3.svg" alt="">
+                </div>
+                <div class="money-card__content">
+                  <h3>На карту</h3>
+                  <p>Мгновенный перевод на банковскую карту. Быстрая и удобная обработка ваших средств.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.moneys-tips -->
+        <div class="moneys-get">
+          <div class="moneys-get__column">
+            <div class="moneys-get__header">
+              <h2><span>Получите деньги</span> в несколько простых шагов</h2>
+              <p>Мы сделали процесс получения денег максимально удобным и быстрым. Следуйте простым шагам, и средства
+                окажутся
+                у вас в кратчайшие сроки.</p>
+            </div>
+            <div class="moneys-get__footer">
+              <a href="#" class="form__submit">
+                <i>Оставить заявку</i>
+                <span>
+                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.525 4.94141L17.5834 9.99974L12.525 15.0581" stroke="#030819" stroke-width="1.5"
+                      stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.41663 10H17.4416" stroke="#030819" stroke-width="1.5" stroke-miterlimit="10"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+              <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g opacity="0.5">
+                    <path
+                      d="M4 6.66658V5.33325C4 3.12659 4.66667 1.33325 8 1.33325C11.3333 1.33325 12 3.12659 12 5.33325V6.66658"
+                      stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.00004 12.3333C8.92052 12.3333 9.66671 11.5871 9.66671 10.6667C9.66671 9.74619 8.92052 9 8.00004 9C7.07957 9 6.33337 9.74619 6.33337 10.6667C6.33337 11.5871 7.07957 12.3333 8.00004 12.3333Z"
+                      stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M11.3334 14.6667H4.66671C2.00004 14.6667 1.33337 14.0001 1.33337 11.3334V10.0001C1.33337 7.33341 2.00004 6.66675 4.66671 6.66675H11.3334C14 6.66675 14.6667 7.33341 14.6667 10.0001V11.3334C14.6667 14.0001 14 14.6667 11.3334 14.6667Z"
+                      stroke="#FEFEFF" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                </svg>
+                Данные зашифрованы по стандарту DES</span>
+            </div>
+
+            <img src="assets/img/saturn.svg" alt="" class="saturn">
+            <img src="assets/img/moon.svg" alt="" class="moon">
+          </div>
+          <!-- /.moneys__column -->
+          <div class="moneys-get__wrapper">
+            <div class="moneys-get__card">
+              <div class="moneys-get__step">Шаг 1</div>
+              <div class="moneys-get__content">
+                <h3>Заполните анкету</h3>
+                <p>Начните с заполнения анкеты с основными данными. Этот процесс займёт всего несколько минут.</p>
+              </div>
+            </div>
+            <div class="moneys-get__card">
+              <div class="moneys-get__step">Шаг 2</div>
+              <div class="moneys-get__content">
+                <h3>Выберите предложение</h3>
+                <p>Изучите и выберите наиболее подходящее предложение среди доступных вариантов</p>
+              </div>
+            </div>
+            <div class="moneys-get__card">
+              <div class="moneys-get__step">Шаг 3</div>
+              <div class="moneys-get__content">
+                <h3>Получите деньги</h3>
+                <p>Получите деньги на карту, электронный кошелек или наличными после одобрения заявки</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.moneys-get__wrapper -->
+        </div>
+        <!-- /.moneys-get -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /.moneys -->
 
 
 
