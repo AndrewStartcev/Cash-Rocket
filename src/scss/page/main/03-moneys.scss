@@ -1,5 +1,4 @@
 .moneys {
-	background-color: url('../img/background.png') center center / 100%;
 	position: relative;
 	&::after {
 		content: '';
@@ -14,9 +13,34 @@
 }
 
 .moneys-tips {
+	background: url('../img/background.png') center center / cover;
 	padding: 180px 0;
 	position: relative;
 	z-index: 1;
+	.container {
+		position: relative;
+		.money-8 {
+			position: absolute;
+			top: 40px;
+			left: 100px;
+		}
+		.money-1 {
+			position: absolute;
+			top: 500px;
+			right: -45px;
+		}
+		.money-2 {
+			position: absolute;
+			bottom: 60px;
+			right: 447px;
+			z-index: 2;
+		}
+		.money-3 {
+			position: absolute;
+			top: 460px;
+			left: 49px;
+		}
+	}
 	&__header {
 		max-width: 588px;
 		display: flex;
@@ -135,7 +159,10 @@
 		}
 	}
 }
-
+.moneys-get-bg {
+	background: url('../img/background.png') center center / cover;
+	padding-bottom: 180px;
+}
 .moneys-get {
 	position: relative;
 	z-index: 1;
@@ -143,7 +170,7 @@
 	justify-content: space-between;
 	align-items: stretch;
 	gap: 64px;
-	padding-bottom: 180px;
+
 	&__column {
 		flex: 0 0 auto;
 		max-width: 588px;
@@ -293,6 +320,20 @@
 @include media-tablet-horizontal {
 	.moneys-tips {
 		padding: 120px 0;
+		.container {
+			.money-1 {
+				top: 500px;
+				right: -24px;
+			}
+			.money-2 {
+				bottom: 174px;
+				right: 231px;
+			}
+			.money-3 {
+				top: 460px;
+				left: -12px;
+			}
+		}
 		&__header {
 			max-width: 100%;
 			gap: 24px;
@@ -320,10 +361,13 @@
 			transform: rotate(0deg) translateY(0px);
 		}
 	}
+	.moneys-get-bg {
+		padding-bottom: 120px;
+	}
 	.moneys-get {
 		flex-direction: column;
 		gap: 48px;
-		padding-bottom: 120px;
+
 		&__column {
 			max-width: 100%;
 		}
@@ -357,6 +401,21 @@
 @include media-mobile-horizontal {
 	.moneys-tips {
 		padding: 84px 0;
+		.container {
+			.money-1 {
+				top: auto;
+				bottom: 174px;
+				right: -24px;
+			}
+			.money-2 {
+				bottom: auto;
+				top: 300px;
+				left: -24px;
+			}
+			.money-3 {
+				display: none;
+			}
+		}
 		&__header {
 			gap: 15px;
 			h2 {
