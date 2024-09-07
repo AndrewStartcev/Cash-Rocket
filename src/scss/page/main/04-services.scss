@@ -1,0 +1,244 @@
+.about-services {
+	background-color: url('../img/background.png') center center / 100%;
+	position: relative;
+	&__block {
+		max-width: 1376px;
+		width: 100%;
+		margin: 0 auto;
+		background: linear-gradient(180deg, rgba(10.62, 19.67, 50.54, 0.9) 0%, rgba(11, 20, 51, 0) 100%);
+		backdrop-filter: blur(4px);
+		border-radius: 32px;
+		padding: 52px;
+		padding-top: 84px;
+		position: relative;
+		overflow: hidden;
+	}
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		margin-bottom: 64px;
+		h2 {
+			max-width: 588px;
+			margin: 0;
+			font-size: 52px;
+			font-weight: $font-weight-medium;
+			letter-spacing: $heading-letter-spacing;
+			line-height: $heading-line-height;
+			span {
+				color: $color-accent-blue;
+			}
+		}
+		p {
+			max-width: 620px;
+			margin: 0;
+			color: $gray-50;
+			font-size: 20px;
+			font-weight: $font-weight-light;
+			letter-spacing: $l-letter-spacing;
+			line-height: $l-line-height;
+		}
+	}
+
+	&__buttons {
+		overflow-y: hidden;
+		overflow-x: auto;
+		padding-bottom: 12px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 16px;
+		margin-bottom: 12px;
+		button {
+			flex: 0 0 auto;
+			padding: 16px 24px;
+			border: none;
+			background-color: $gray-4;
+			backdrop-filter: blur(12px);
+			border-radius: 12px;
+			color: $gray-30;
+			font-size: 16px;
+			font-weight: $font-weight-semibold;
+			letter-spacing: $s-letter-spacing;
+			line-height: $s-line-height;
+			text-align: center;
+			transition: all 0.5s ease;
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: $gray-10;
+				}
+			}
+			&.active {
+				background-color: $color-accent-blue;
+				color: $color-primary-white;
+				@media (any-hover: hover) {
+					&:hover {
+						background-color: $color-accent-blue;
+						color: $color-primary-white;
+					}
+				}
+			}
+		}
+	}
+
+	&__tab {
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+		align-items: flex-start;
+		justify-content: flex-start;
+		transition: all 0.5s ease;
+		gap: 32px;
+		padding: 32px;
+		background-color: $gray-4;
+		backdrop-filter: blur(10px);
+		border-radius: 16px;
+		&.active {
+			opacity: 1;
+			display: flex;
+			visibility: visible;
+		}
+	}
+
+	&__icon {
+		flex: 0 0 auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 64px;
+		border: 1px solid $gray-4;
+		border-radius: 24px;
+	}
+
+	&__content {
+		ul {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			gap: 12px;
+			li {
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				position: relative;
+				gap: 12px;
+				color: $gray-50;
+				font-size: 16px;
+				font-weight: $font-weight-light;
+				letter-spacing: $l-letter-spacing;
+				line-height: $l-line-height;
+				&::before {
+					content: '';
+					display: block;
+					width: 14px;
+					height: 14px;
+					margin-top: 3px;
+					opacity: 0.4;
+					background: #ff9b00;
+					border-radius: 9999px;
+					filter: blur(13px);
+					flex: 0 0 auto;
+				}
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 7px;
+					left: 4px;
+					width: 6px;
+					height: 6px;
+					background: #ff9b00;
+					border-radius: 9999px;
+				}
+			}
+		}
+	}
+}
+
+@include media-tablet-horizontal {
+	.about-services {
+		&__block {
+			padding: 16px;
+			padding-top: 64px;
+		}
+		&__header {
+			flex-direction: column;
+			gap: 24px;
+			h2 {
+				font-size: 42px;
+			}
+			p {
+				max-width: 588px;
+			}
+		}
+
+		&__tab {
+			flex-direction: column;
+		}
+
+		&__icon {
+			padding: 26px;
+			border-radius: 12px;
+		}
+	}
+}
+
+@include media-mobile-horizontal {
+	.about-services {
+		.container {
+			padding: 0;
+		}
+		&__block {
+			padding: 0px;
+			padding-top: 24px;
+		}
+		&__header {
+			gap: 16px;
+			padding: 0 16px;
+			margin-bottom: 32px;
+			h2 {
+				font-size: 28px;
+			}
+			p {
+				font-size: 16px;
+			}
+		}
+		&__buttons {
+			padding: 0 16px;
+			button {
+				padding: 17px 16px;
+				border-radius: 12px;
+				font-size: 14px;
+			}
+		}
+		&__wrapper {
+			padding: 0 16px;
+		}
+
+		&__tab {
+			gap: 16px;
+			padding: 24px;
+		}
+
+		&__icon {
+			padding: 16px;
+			border-radius: 8px;
+			svg {
+				width: 32px;
+				height: 32px;
+			}
+		}
+		&__content {
+			ul {
+				li {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

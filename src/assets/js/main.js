@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-
   const burger = document.querySelector('.header__burger');
   const menu = document.querySelector('.menu');
 
@@ -24,6 +22,23 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!menu.contains(event.target) && !burger.contains(event.target)) {
         closeMenu();
       }
+    });
+  }
+
+  const tabButtons = document.querySelectorAll('.about-services__buttons button');
+  const tabs = document.querySelectorAll('.about-services__tab');
+
+  if (tabs && tabs.length > 0) {
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+
+        const tabId = this.getAttribute('data-tab');
+
+        tabs.forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+      });
     });
   }
 
@@ -367,6 +382,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const calendarInput = new VanillaCalendar('#calendar-input', options);
     calendarInput.init();
+  });
+
+
+  const swiperBanks = new Swiper('.partners-slider__slider', {
+    spaceBetween: 24,
+    slidesPerView: 1,
+    initialSlide: 0,
+    loop: true,
+    centeredSlides: false,
+    navigation: {
+      nextEl: '.partners-slider__btn-next',
+      prevEl: '.partners-slider__btn-prev',
+    },
+    pagination: {
+      el: '.partners-slider__pagination',
+      type: 'bullets',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 'auto',
+        initialSlide: 2,
+        centeredSlides: true,
+      },
+    }
   });
 
 });

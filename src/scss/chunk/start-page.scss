@@ -1,7 +1,9 @@
 $gulpBackground: #efefff;
 $gulpTitle: #2f2b43;
 $gulpText: #595569;
-
+.gulp {
+	background: #fff;
+}
 .gulp-main {
 	font-family: $font-family-primary;
 	width: calc(100vw - 64px);
