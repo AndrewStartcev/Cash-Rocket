@@ -12,8 +12,8 @@ const isCss = file => file.extname === '.css';
 
 // Проверка, является ли файл JS
 const isJs = file => file.extname === '.js';
+const isMinified = file => /\.min\.js$/.test(file.basename);
 
-// Задача для обработки файлов из папки lib
 const lib = () => {
   return src(path.lib.src, { sourcemaps: true }) // Убедитесь, что путь к lib.src правильный
     .pipe(plumber({
@@ -23,8 +23,9 @@ const lib = () => {
       }))
     }))
     .pipe(gulpIf(isCss, cssnano())) // Минимизируем CSS файлы
-    .pipe(gulpIf(isJs, gulpIf((file) => !file.path.includes('node_modules'), uglify()))) // Минимизируем JS файлы, кроме файлов из node_modules
+    .pipe(gulpIf(isJs, gulpIf((file) => !isMinified(file) && !file.path.includes('node_modules'), uglify()))) // Минимизируем только не минимизированные JS файлы
     .pipe(dest(path.lib.dest, { sourcemaps: true })); // Указываем путь к папке назначения
 };
+
 
 module.exports = lib;
