@@ -202,7 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function validateField(field) {
-      const errorSpan = field.nextElementSibling;
+      const parent = field.parentElement;  // Находим родителя поля
+      const errorSpan = parent.querySelector('.error-message');
       if (field.type === 'checkbox') {
         if (!field.checked) {
           field.classList.add('error');

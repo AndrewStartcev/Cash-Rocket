@@ -305,8 +305,9 @@
 			background-size: contain;
 		}
 		&.error + .checkbox__item {
-			span,
+			i,
 			a {
+				font-style: normal;
 				color: $color-accent-red;
 			}
 			&::before {
@@ -331,7 +332,8 @@
 			flex: 0 0 auto;
 		}
 	}
-	span {
+	i {
+		font-style: normal;
 		cursor: pointer;
 		user-select: none;
 		color: $gray-50;
@@ -401,7 +403,7 @@
 	}
 	.checkbox {
 		gap: 8px;
-		span {
+		i {
 			font-size: 12px;
 		}
 	}
